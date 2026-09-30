@@ -1,5 +1,8 @@
 # Grammar Scoring Engine for Spoken English
 
+> **© 2026 Gagan Raj Singh. All rights reserved.** Shared publicly only for review by SHL; no permission to copy or
+> reuse any part of it (see [LICENSE](LICENSE)).
+
 Solution for the **SHL Hiring Assessment 2026** Kaggle competition: predict a 1–5 grammar score
 (averaged rater MOS) for 45–60 s spoken English answers.
 
@@ -85,3 +88,7 @@ Key data findings (details in the notebook):
 **Cluster note:** the `jobs/*.pbs` files are the PBS batch scripts we used on a shared GPU cluster. Submit them from
 the repo root with `qsub -q <your-gpu-queue> -v GPU=<gpu-id> jobs/<name>.pbs`. Each job refuses to start if its GPU is
 already in use. Without PBS, run the same `python src/...` commands directly.
+
+## License
+
+All rights reserved. See [LICENSE](LICENSE): this code is visible for SHL's review only and may not be copied or reused.
