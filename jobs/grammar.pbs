@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N gagan_gram
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=4
+#PBS -l walltime=02:00:00
+#PBS -o logs/grammar.out
+#PBS -e logs/grammar.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1
+cd $R
+# ARGS lets the same job run a smoke test: qsub -v ARGS="--limit 20 ..." jobs/grammar.pbs
+env/bin/python -u src/grammar_features.py $ARGS 2>&1 | tee logs/grammar.live.log

@@ -1,0 +1,7 @@
+date_utc,ref,file,description,cv_rmse,cv_r,cv_testmix_rmse,public_lb
+2026-09-29T21:56:13Z,56688402,sub01_v4w_asr-grammar-deberta-wavlm_batchweighted.csv,v4w stack (fluency+TFIDF+CoLA/GEC+DeBERTa-base+WavLM) batch-weighted,0.535,0.850,0.545,0.3661
+2026-09-29T21:56:44Z,56688409,sub02_metricprobe_v4w_x0.5_plus1.5.csv,metric probe: v4w rescaled 0.5p+1.5 (same ranking) -> score changed => RMSE-based,,,,0.4634
+2026-09-29T22:27:43Z,56688943,sub03_v8_stack_whisperenc-wavlmL-debertaBL3seeds-grammar.csv,v8 2-level NNLS stack (Whisper enc + WavLM-large + DeBERTa base/large x3 seeds + TFIDF + hand feats) batch-weighted,0.515,0.862,0.518,0.3401
+2026-09-29T22:52:55Z,56689338,sub04_minimal_whisperenc-debertaL3seeds-feats-tfidf.csv,minimal 4-part NNLS stack (Whisper enc + DeBERTa-large x3 + hand feats + TFIDF) batch-weighted,0.518,0.860,0.516,0.3451
+2026-09-29T23:27:32Z,56689927,sub05_final_minimal_serverenv.csv,FINAL: sub04 model regenerated in requirements.txt env (notebook reproduces exactly),0.518,0.860,0.515,0.3443
+2026-09-30T04:40:38Z,56697365,sub06_final_v9_lora-whisper-debertaL-feats-tfidf.csv,FINAL v9: 4-part stack with LoRA-fine-tuned Whisper encoder (replaces frozen) + DeBERTa-large x3 + feats + TFIDF,0.516,0.861,0.510,0.3392

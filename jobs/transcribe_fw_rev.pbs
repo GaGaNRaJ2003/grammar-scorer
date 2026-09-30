@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N gagan_fw_rev
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=4
+#PBS -l walltime=04:00:00
+#PBS -o logs/transcribe_fw_rev.out
+#PBS -e logs/transcribe_fw_rev.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1
+SP=$R/env/lib/python3.11/site-packages/nvidia
+export LD_LIBRARY_PATH=$SP/cublas/lib:$SP/cudnn/lib:$LD_LIBRARY_PATH
+cd $R
+# PBS only copies -o/-e at job end; write a live log too so progress is visible while running
+env/bin/python -u src/transcribe_fw.py --reverse --out outputs/transcripts_fw_large_v3.rev.jsonl 2>&1 | tee logs/transcribe_fw_rev.live.log

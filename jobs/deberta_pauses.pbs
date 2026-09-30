@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N gagan_pause
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=8
+#PBS -l walltime=03:00:00
+#PBS -o logs/deberta_pauses.out
+#PBS -e logs/deberta_pauses.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1 TOKENIZERS_PARALLELISM=false
+cd $R
+# Experiment #1: DeBERTa-large on transcripts with (pause)/(long pause) markers, 3 seeds (same seeds as the plain runs)
+{
+  for s in 0 100 200; do
+    env/bin/python -u src/text_model.py --model models/deberta-v3-large --lr 1e-5 --seed $s --pauses \
+      --transcripts outputs/transcripts_fw_large_v3.jsonl --out outputs/deberta_large_pause_s$s.csv
+  done
+  echo PAUSES_DONE
+} 2>&1 | tee logs/deberta_pauses.live.log

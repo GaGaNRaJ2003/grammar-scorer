@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N gagan_wft
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=8
+#PBS -l walltime=06:00:00
+#PBS -o logs/audio_finetune.out
+#PBS -e logs/audio_finetune.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1
+cd $R
+# Experiment #2: LoRA fine-tuning of the Whisper-large-v3 encoder (5 folds, fixed 4 epochs)
+env/bin/python -u src/audio_finetune.py $ARGS 2>&1 | tee logs/audio_finetune${TAG}.live.log

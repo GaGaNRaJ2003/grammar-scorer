@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N gagan_seeds
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=8
+#PBS -l walltime=04:00:00
+#PBS -o logs/deberta_seeds.out
+#PBS -e logs/deberta_seeds.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1 TOKENIZERS_PARALLELISM=false
+cd $R
+# extra seeds for averaging (seed 0 of each already exists)
+{
+  for s in 1 2; do
+    env/bin/python -u src/text_model.py --model models/deberta-v3-base --seed $((s * 100)) --out outputs/deberta_base_s$s.csv
+    env/bin/python -u src/text_model.py --model models/deberta-v3-large --lr 1e-5 --seed $((s * 100)) --out outputs/deberta_large_s$s.csv
+  done
+  echo SEEDS_DONE
+} 2>&1 | tee logs/deberta_seeds.live.log

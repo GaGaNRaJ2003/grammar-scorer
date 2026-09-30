@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N gagan_wavlm
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=4
+#PBS -l walltime=01:00:00
+#PBS -o logs/audio_embed.out
+#PBS -e logs/audio_embed.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1 TOKENIZERS_PARALLELISM=false
+cd $R
+env/bin/python -u src/audio_embed.py $ARGS 2>&1 | tee logs/audio_embed.live.log

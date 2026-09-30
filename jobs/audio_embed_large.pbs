@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N gagan_aud2
+#PBS -q gpu                      # set to your cluster's GPU queue
+#PBS -l nodes=1:ncpus=8
+#PBS -l walltime=03:00:00
+#PBS -o logs/audio_embed_large.out
+#PBS -e logs/audio_embed_large.err
+export CUDA_VISIBLE_DEVICES=${GPU:-0}   # GPU index or MIG-slice UUID on your machine
+R=${PBS_O_WORKDIR:-$PWD}   # repo root (submit jobs from the repo root)
+export HF_HOME=$R/.cache/hf HF_HUB_OFFLINE=1
+cd $R
+{
+  env/bin/python -u src/audio_embed.py --kind whisper --model openai/whisper-large-v3 --out outputs/whisper_enc_emb.npz
+  env/bin/python -u src/audio_embed.py --kind wavlm --model models/wavlm-large --out outputs/wavlm_large_emb.npz
+} 2>&1 | tee logs/audio_embed_large.live.log
