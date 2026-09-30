@@ -1,0 +1,27 @@
+fold 0 epoch 1: val RMSE 0.718
+fold 0 epoch 2: val RMSE 0.593
+fold 0 epoch 3: val RMSE 0.586
+fold 0 epoch 4: val RMSE 0.593
+fold 0 epoch 5: val RMSE 0.558
+fold 1 epoch 1: val RMSE 0.787
+fold 1 epoch 2: val RMSE 0.751
+fold 1 epoch 3: val RMSE 0.698
+fold 1 epoch 4: val RMSE 0.663
+fold 1 epoch 5: val RMSE 0.659
+fold 2 epoch 1: val RMSE 0.849
+fold 2 epoch 2: val RMSE 0.564
+fold 2 epoch 3: val RMSE 0.603
+fold 2 epoch 4: val RMSE 0.562
+fold 2 epoch 5: val RMSE 0.556
+fold 3 epoch 1: val RMSE 0.793
+fold 3 epoch 2: val RMSE 0.646
+fold 3 epoch 3: val RMSE 0.589
+fold 3 epoch 4: val RMSE 0.609
+fold 3 epoch 5: val RMSE 0.601
+fold 4 epoch 1: val RMSE 0.854
+fold 4 epoch 2: val RMSE 0.722
+fold 4 epoch 3: val RMSE 0.642
+fold 4 epoch 4: val RMSE 0.626
+fold 4 epoch 5: val RMSE 0.626
+OOF RMSE 0.601  r 0.816
+TEXT_MODEL_DONE outputs/deberta_large_preds.csv

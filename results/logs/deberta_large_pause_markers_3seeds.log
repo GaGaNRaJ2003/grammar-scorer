@@ -1,0 +1,82 @@
+fold 0 epoch 1: val RMSE 0.866
+fold 0 epoch 2: val RMSE 0.638
+fold 0 epoch 3: val RMSE 0.582
+fold 0 epoch 4: val RMSE 0.587
+fold 0 epoch 5: val RMSE 0.567
+fold 1 epoch 1: val RMSE 0.841
+fold 1 epoch 2: val RMSE 0.793
+fold 1 epoch 3: val RMSE 0.708
+fold 1 epoch 4: val RMSE 0.679
+fold 1 epoch 5: val RMSE 0.640
+fold 2 epoch 1: val RMSE 0.736
+fold 2 epoch 2: val RMSE 0.567
+fold 2 epoch 3: val RMSE 0.544
+fold 2 epoch 4: val RMSE 0.580
+fold 2 epoch 5: val RMSE 0.569
+fold 3 epoch 1: val RMSE 0.795
+fold 3 epoch 2: val RMSE 0.658
+fold 3 epoch 3: val RMSE 0.674
+fold 3 epoch 4: val RMSE 0.599
+fold 3 epoch 5: val RMSE 0.599
+fold 4 epoch 1: val RMSE 0.793
+fold 4 epoch 2: val RMSE 0.689
+fold 4 epoch 3: val RMSE 0.636
+fold 4 epoch 4: val RMSE 0.612
+fold 4 epoch 5: val RMSE 0.611
+OOF RMSE 0.598  r 0.814
+TEXT_MODEL_DONE outputs/deberta_large_pause_s0.csv
+fold 0 epoch 1: val RMSE 0.802
+fold 0 epoch 2: val RMSE 0.604
+fold 0 epoch 3: val RMSE 0.598
+fold 0 epoch 4: val RMSE 0.595
+fold 0 epoch 5: val RMSE 0.571
+fold 1 epoch 1: val RMSE 0.792
+fold 1 epoch 2: val RMSE 0.762
+fold 1 epoch 3: val RMSE 0.711
+fold 1 epoch 4: val RMSE 0.663
+fold 1 epoch 5: val RMSE 0.655
+fold 2 epoch 1: val RMSE 0.689
+fold 2 epoch 2: val RMSE 0.576
+fold 2 epoch 3: val RMSE 0.553
+fold 2 epoch 4: val RMSE 0.544
+fold 2 epoch 5: val RMSE 0.553
+fold 3 epoch 1: val RMSE 0.904
+fold 3 epoch 2: val RMSE 0.735
+fold 3 epoch 3: val RMSE 0.629
+fold 3 epoch 4: val RMSE 0.626
+fold 3 epoch 5: val RMSE 0.604
+fold 4 epoch 1: val RMSE 0.844
+fold 4 epoch 2: val RMSE 0.813
+fold 4 epoch 3: val RMSE 0.629
+fold 4 epoch 4: val RMSE 0.604
+fold 4 epoch 5: val RMSE 0.627
+OOF RMSE 0.603  r 0.816
+TEXT_MODEL_DONE outputs/deberta_large_pause_s100.csv
+fold 0 epoch 1: val RMSE 0.854
+fold 0 epoch 2: val RMSE 0.659
+fold 0 epoch 3: val RMSE 0.659
+fold 0 epoch 4: val RMSE 0.577
+fold 0 epoch 5: val RMSE 0.606
+fold 1 epoch 1: val RMSE 0.848
+fold 1 epoch 2: val RMSE 0.705
+fold 1 epoch 3: val RMSE 0.693
+fold 1 epoch 4: val RMSE 0.652
+fold 1 epoch 5: val RMSE 0.640
+fold 2 epoch 1: val RMSE 0.773
+fold 2 epoch 2: val RMSE 0.626
+fold 2 epoch 3: val RMSE 0.578
+fold 2 epoch 4: val RMSE 0.552
+fold 2 epoch 5: val RMSE 0.554
+fold 3 epoch 1: val RMSE 0.831
+fold 3 epoch 2: val RMSE 0.620
+fold 3 epoch 3: val RMSE 0.594
+fold 3 epoch 4: val RMSE 0.595
+fold 3 epoch 5: val RMSE 0.575
+fold 4 epoch 1: val RMSE 0.822
+fold 4 epoch 2: val RMSE 0.677
+fold 4 epoch 3: val RMSE 0.641
+fold 4 epoch 4: val RMSE 0.645
+fold 4 epoch 5: val RMSE 0.631
+OOF RMSE 0.602  r 0.815
+TEXT_MODEL_DONE outputs/deberta_large_pause_s200.csv
+PAUSES_DONE

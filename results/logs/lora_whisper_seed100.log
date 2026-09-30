@@ -1,0 +1,23 @@
+features ready: 732 train / 216 test clips
+fold 0 epoch 1: val RMSE 0.577
+fold 0 epoch 2: val RMSE 0.565
+fold 0 epoch 3: val RMSE 0.553
+fold 0 epoch 4: val RMSE 0.553
+fold 1 epoch 1: val RMSE 0.635
+fold 1 epoch 2: val RMSE 0.675
+fold 1 epoch 3: val RMSE 0.634
+fold 1 epoch 4: val RMSE 0.608
+fold 2 epoch 1: val RMSE 0.621
+fold 2 epoch 2: val RMSE 0.567
+fold 2 epoch 3: val RMSE 0.538
+fold 2 epoch 4: val RMSE 0.525
+fold 3 epoch 1: val RMSE 0.595
+fold 3 epoch 2: val RMSE 0.594
+fold 3 epoch 3: val RMSE 0.542
+fold 3 epoch 4: val RMSE 0.533
+fold 4 epoch 1: val RMSE 0.720
+fold 4 epoch 2: val RMSE 0.630
+fold 4 epoch 3: val RMSE 0.586
+fold 4 epoch 4: val RMSE 0.579
+OOF RMSE 0.561  r 0.833
+AUDIO_FT_DONE outputs/whisper_ft_s100.csv

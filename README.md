@@ -35,7 +35,7 @@ Test-mix CV RMSE re-weights CV errors to the test set's mix of recording batches
 Key data findings (details in the notebook):
 1. **37 zero labels are missing ratings.** They are the appended block `audio_5037…5073` (normal files are ids 0–784), a score outside the 1–5
    rubric, on ordinary speech. They are excluded from training.
-2. **Two recording batches.** ~57 % of test clips come from the ~45 s batch, versus ~17 % of training clips.
+2. **Two recording batches.** 56 % of test clips come from the ~45 s batch, versus 16 % of training clips.
    Features are length-normalised, and validation and the final fit are importance-weighted to the test mix.
 3. **Whisper removes filled pauses** ("um", "uh"), so the audio branch carries hesitation information that the
    transcript loses.
@@ -52,12 +52,14 @@ Key data findings (details in the notebook):
 | `src/audio_finetune.py` | LoRA fine-tuning of the Whisper-large-v3 encoder: out-of-fold + test predictions |
 | `src/audio_embed.py` | Frozen speech-encoder embeddings (Whisper encoder / WavLM), used in the ablation |
 | `src/audio_model.py` | Ridge on embeddings: out-of-fold + test predictions |
-| `src/train.py` | CV, stacking (`--stack`), batch weighting (`--weighted`), submission |
+| `src/stacking.py` | Model building blocks shared by the notebook and `train.py`: data table, folds, batch weights, level-1 models, NNLS stack, metrics |
+| `src/train.py` | Command-line CV, stacking (`--stack`), batch weighting (`--weighted`), submission |
 | `jobs/*.pbs` | PBS GPU jobs used on our cluster (see note below) |
 | `jobs/setup_env.sh`, `jobs/setup_fw.sh` | Environment setup |
 | `jobs/dl_model.py`, `jobs/to_safetensors.py` | Model download / `.bin` → safetensors conversion (transformers 5 + torch < 2.6) |
 | `jobs/merge_asr.py` | Merges the two parallel ASR job outputs |
 | `jobs/build_notebook.py` | Generates the notebook |
+| `results/logs/` | Training logs of every GPU run (per-fold, per-epoch validation RMSE); the notebook parses them |
 | `results/` | Final submission file (`sub06_…csv`: filename + predicted score) and `submissions.csv`, the log of every Kaggle submission with its CV and public-leaderboard score |
 | `data/`, `outputs/` | Competition data and generated artefacts. **Not committed**: the competition rules forbid redistributing the data or anything derived from it. |
 
